@@ -1,0 +1,94 @@
+<!DOCTYPE html >
+<html class="no-js" data-ng-app="Highlighter" data-ng-controller="HighlighterController">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Code Highlighter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/monokai.min.css">
+    <script class="theme" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+    <link  ng-href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/{{theme}}.min.css"  rel="stylesheet" />
+</head>
+<body >
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Online highlighter</h1>
+
+        <p>A online highlighter to copy code into presentations, word documents and more.  </p>
+
+        <p><a class="btn btn-primary" role="button">Start Highlighting</a></p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Code</h2>
+            <textarea data-ng-model="codeTextarea" name="code" id="code-textarea" cols="30" rows="10" class="form-control" placeholder='echo "Hello World";'></textarea>
+        </div>
+        <div class="col-md-6">
+            <h2>Options</h2>
+
+            <div class="form-group">
+                <label for="style">Theme</label>
+                <select  data-ng-model="theme"  name="style" id="style" class="form-control">
+                    <option value="solarized_dark">Solarized Dark</option>
+                    <option value="solarized_light">Solarized Light</option>
+                    <option value="monokai">Monokai</option>
+                    <option value="color-brewer">Color Brewer</option>
+                    <option value="zenburn">Zenburn</option>
+                    <option value="railscasts">Railscasts</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Language</label>
+                <select data-ng-model="language" name="language" id="language" class="form-control">
+                    <option value="php" selected>PHP</option>
+                    <option value="bash">Bash</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="css">CSS</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="go">Go</option>
+                    <option value="xml">XML</option>
+                    <option value="javascript">Javascript</option>
+                    <option value="cpp">C++</option>
+                    <option value="sql">SQL</option>
+                    <option value="cs">C#</option>
+                </select>
+            </div>
+            <p><a data-ng-click="updateCode()" class="btn btn-primary btn-lg btn-block" role="button">Start Highlighting</a></p>
+
+        </div>
+        <div class="col-md-12">
+            <h2>Highlighted Code</h2>
+                      <pre data-ng-class="language" id="code"><code><span class="hljs"></span></code></pre>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Robin Glauser 2014</p>
+    </footer>
+</div>
+<!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
